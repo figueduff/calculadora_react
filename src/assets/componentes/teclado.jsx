@@ -18,13 +18,13 @@ function teclado() {
   const agregarCaracterDisplay = (dato) =>
     checkDisplay()
       ? setVerDisplay(dato)
-      : verDisplay.length < 16
-      ? setVerDisplay((a) => (a += dato))
-      : setVerDisplay(" Max_16_digitos ");
+      : (document.querySelector("#resultado").textContent.length < 16)
+        ? setVerDisplay((a) => (a += dato))
+        : setVerDisplay(" Max_16_digitos ");
 
   function checkDisplay() {
     let display = document.querySelector("#resultado");
-    let condicionDisplay = ["null", "faltaria_MS", "N°_grande/decimal", "_"];
+    let condicionDisplay = ["null", "faltaria_MS", "N°_grande/decimal", "_","NaN"];
     return condicionDisplay.some((esta) => display.textContent.includes(esta));
   }
 
